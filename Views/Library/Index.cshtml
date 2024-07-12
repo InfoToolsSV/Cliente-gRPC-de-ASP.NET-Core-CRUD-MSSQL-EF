@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Book List";
+}
+
+@model IEnumerable<LibraryMvcClient.Protos.Book>
+
+<h1>Book List</h1>
+<p>
+    <a asp-action="Create">Create New Book</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Publication Year</th>
+            <th>Admin Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Genre</td>
+                <td>@book.PublicationYear</td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@book.Id">Edit</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@book.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
