@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Delete Book";
+}
+@model LibraryMvcClient.Protos.Book
+
+<h1>Delete Book</h1>
+
+<h3>¿Está seguro que desea eliminar este Book?</h3>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Title</dt>
+        <dd>@Model.Title</dd>
+
+        <dt>Author</dt>
+        <dd>@Model.Author</dd>
+
+        <dt>Genre</dt>
+        <dd>@Model.Genre</dd>
+
+        <dt>Publication Year</dt>
+        <dd>@Model.PublicationYear</dd>
+
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete Book</button>
+    </form>
+</div>
+
+<p>
+    <a asp-action="Index">Back to list</a>
+</p>
